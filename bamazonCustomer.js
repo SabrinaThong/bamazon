@@ -65,20 +65,20 @@ var connection = mysql.createConnection({
             id: item.id
           }
           
-        ]), function(err) {
-          if (err) throw err;
+        ]), 
           console.log("Product purchased successfully!");
           console.log("Item ID: " + item.id);
           console.log("Product: " + item.product_name);
-          console.log("Item count: " + parseInt(response.productamount))
+          console.log("Item count: " + parseInt(response.stock_quantity))
           console.log("Your total cost is: " + "$" + (item.price * parseInt(response.productamount)))
           //display();
+          
           show();
         }
-      }
-     // else {
-      //  console.log("Sorry, we only have " + item.stock_quantity + " of this in stock" )
-       //   }
+      
+     else {
+        console.log("Sorry, we only have " + item.stock_quantity + " of this in stock" )
+          }
       //display();
       show();
 
